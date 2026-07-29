@@ -1,0 +1,145 @@
+.glyph {
+  position: absolute;
+  top: 8%;
+  right: 4%;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  font-family: var(--font-face-display), var(--font-face-body), system-ui, sans-serif;
+  font-size: clamp(180px, 22vw, 320px);
+  font-weight: 700;
+  line-height: 1;
+  color: color-mix(in srgb, var(--foreground) 3.5%, transparent);
+}
+
+.grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 100%;
+  align-items: center;
+  gap: clamp(40px, 6vw, 90px);
+  grid-template-columns: 1.05fr 0.95fr;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 26px;
+  font-family: var(--font-face-mono), ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.heading {
+  font-family: var(--font-face-display), var(--font-face-body), system-ui, sans-serif;
+  font-size: clamp(38px, 5vw, 68px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+
+.rule {
+  width: 120px;
+  height: 2px;
+  margin-top: 36px;
+  background: var(--border-strong);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 36px;
+  padding: 15px 28px;
+  border-radius: 8px;
+  border: 1.5px solid var(--foreground);
+  background: transparent;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--foreground);
+  text-decoration: none;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.cta:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.ctaIcon {
+  transition: transform 0.25s ease;
+}
+
+.cta:hover .ctaIcon {
+  transform: translateX(4px);
+}
+
+.lede {
+  max-width: 46ch;
+  font-size: clamp(16px, 1.25vw, 19px);
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.lede + .lede {
+  margin-top: 20px;
+}
+
+.facts {
+  margin-top: 38px;
+  border-top: 1px solid var(--border);
+}
+
+.fact {
+  display: grid;
+  align-items: baseline;
+  gap: 20px;
+  grid-template-columns: 128px 1fr;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.factLabel {
+  font-family: var(--font-face-mono), ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.factValue {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--foreground);
+}
+
+@media (max-width: 860px) {
+  .grid {
+    align-items: start;
+    gap: 36px;
+    grid-template-columns: 1fr;
+  }
+
+  .glyph {
+    display: none;
+  }
+
+  .cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .fact {
+    gap: 14px;
+    grid-template-columns: 104px 1fr;
+  }
+}

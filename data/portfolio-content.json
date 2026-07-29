@@ -1,0 +1,495 @@
+{
+  "pages": [
+    {
+      "id": "home",
+      "path": "/",
+      "seo": {
+        "title": "Rohit Sachdeva | AI Engineer, Machine Learning Developer and Data Analyst",
+        "description": "Explore the portfolio of Rohit Sachdeva, featuring AI, Machine Learning, Computer Vision, Python, Power BI and Data Analytics projects.",
+        "keywords": [
+          "Rohit Sachdeva",
+          "AI Engineer",
+          "Machine Learning Developer",
+          "Data Analyst",
+          "Python Developer",
+          "Computer Vision Engineer",
+          "Power BI Developer",
+          "Artificial Intelligence Portfolio"
+        ],
+        "canonical": "/"
+      },
+      "sections": [
+        {
+          "id": "home-hero",
+          "type": "hero",
+          "eyebrow": "AI · Machine Learning · Data Analytics",
+          "heading": "Building Intelligent Solutions with AI, Machine Learning and Data",
+          "description": "I’m Rohit Sachdeva, an aspiring AI and Machine Learning professional focused on building practical, data-driven solutions. I work with Python, TensorFlow, OpenCV, Power BI, Azure and Databricks to create intelligent applications, analytical dashboards and Computer Vision projects.",
+          "image": "/images/rohit-sachdeva.webp",
+          "imageAlt": "Rohit Sachdeva, AI and Machine Learning developer",
+          "primaryCta": {
+            "label": "View My Projects",
+            "url": "/projects"
+          },
+          "secondaryCta": {
+            "label": "Contact Me",
+            "url": "/contact"
+          }
+        },
+        {
+          "id": "home-about",
+          "type": "content",
+          "eyebrow": "About Me",
+          "heading": "Turning Data and Ideas into Intelligent Solutions",
+          "paragraphs": [
+            "I am an MCA student with a strong interest in Artificial Intelligence, Machine Learning, Deep Learning, Computer Vision and Data Analytics.",
+            "I enjoy creating practical applications, exploring emerging technologies and transforming data into meaningful outcomes."
+          ],
+          "facts": [
+            {
+              "label": "Focus",
+              "value": "AI · Machine Learning · Computer Vision · Data Analytics"
+            },
+            {
+              "label": "Currently",
+              "value": "MCA Student"
+            },
+            {
+              "label": "Core Stack",
+              "value": "Python, TensorFlow, OpenCV, Power BI, Azure, Databricks"
+            }
+          ],
+          "primaryCta": {
+            "label": "More About Me",
+            "url": "/about"
+          }
+        },
+        {
+          "id": "home-expertise",
+          "type": "cards",
+          "eyebrow": "Core Expertise",
+          "heading": "What I Work With",
+          "description": "A combination of intelligent technologies, programming and analytical tools.",
+          "items": [
+            {
+              "title": "Machine Learning",
+              "description": "Building prediction and classification models using Python and Machine Learning libraries.",
+              "icon": "brain"
+            },
+            {
+              "title": "Computer Vision",
+              "description": "Creating image-processing and visual-recognition applications using OpenCV and TensorFlow.",
+              "icon": "scan-face"
+            },
+            {
+              "title": "Data Analytics",
+              "description": "Transforming raw information into understandable insights through Power BI, Excel and visual reporting.",
+              "icon": "chart"
+            },
+            {
+              "title": "Python Development",
+              "description": "Developing AI applications, automation tools and backend functionality using Python and Flask.",
+              "icon": "code"
+            }
+          ]
+        },
+        {
+          "id": "home-projects",
+          "type": "projects",
+          "eyebrow": "Selected Work",
+          "heading": "Featured AI and Machine Learning Projects",
+          "description": "Projects demonstrating practical work across Machine Learning, Deep Learning and Computer Vision.",
+          "primaryCta": {
+            "label": "View All Projects",
+            "url": "/projects"
+          }
+        },
+        {
+          "id": "home-cta",
+          "type": "cta",
+          "eyebrow": "Start a Conversation",
+          "heading": "Let’s Build Something Intelligent Together",
+          "description": "I’m interested in opportunities involving Artificial Intelligence, Machine Learning, Python development, Computer Vision and Data Analytics.",
+          "primaryCta": {
+            "label": "Contact Me",
+            "url": "/contact"
+          },
+          "secondaryCta": {
+            "label": "View Resume",
+            "url": "/rohit-sachdeva-resume.pdf",
+            "external": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "path": "/about",
+      "seo": {
+        "title": "About Rohit Sachdeva | AI, Machine Learning and Data Analytics",
+        "description": "Learn about Rohit Sachdeva’s background, technical skills, education and experience in AI, Machine Learning, Python and Data Analytics.",
+        "keywords": [
+          "About Rohit Sachdeva",
+          "Machine Learning Skills",
+          "Python Developer Skills",
+          "Data Analytics Experience",
+          "AI Student Portfolio"
+        ],
+        "canonical": "/about"
+      },
+      "sections": [
+        {
+          "id": "about-hero",
+          "type": "hero",
+          "eyebrow": "About Me",
+          "heading": "Learning, Building and Solving Problems with Technology",
+          "description": "I am an MCA student and technology enthusiast with a strong interest in Artificial Intelligence, Machine Learning, Deep Learning, Computer Vision and Data Analytics.",
+          "image": "/images/rohit-sachdeva.webp",
+          "imageAlt": "Rohit Sachdeva working with Artificial Intelligence and data technologies",
+          "primaryCta": {
+            "label": "Explore Projects",
+            "url": "/projects"
+          },
+          "secondaryCta": {
+            "label": "Contact Me",
+            "url": "/contact"
+          }
+        },
+        {
+          "id": "about-biography",
+          "type": "content",
+          "eyebrow": "My Background",
+          "heading": "A Practical and Research-Focused Approach",
+          "tagline": "Turning research into practical, usable software.",
+          "paragraphs": [
+            "My work focuses on understanding how intelligent systems and data can solve real-world problems — spanning predictive analytics, medical image verification, Computer Vision and AI-powered recommendations.",
+            "Alongside development I mentor students, which has strengthened how I communicate and explain technical concepts clearly."
+          ],
+          "facts": [
+            {
+              "label": "Domains",
+              "value": "4"
+            },
+            {
+              "label": "Roles Held",
+              "value": "2"
+            },
+            {
+              "label": "Core Language",
+              "value": "Python"
+            }
+          ]
+        },
+        {
+          "id": "about-skills",
+          "type": "cards",
+          "eyebrow": "Technical Skills",
+          "heading": "Technologies and Tools",
+          "description": "A combination of intelligent technologies, programming and analytical tools.",
+          "items": [
+            {
+              "title": "AI and Machine Learning",
+              "description": "Building prediction and classification models with modern ML libraries.",
+              "icon": "brain",
+              "tags": [
+                "Deep Learning",
+                "Neural Networks",
+                "TensorFlow",
+                "Scikit-learn"
+              ]
+            },
+            {
+              "title": "Programming",
+              "description": "Writing clean, maintainable code for applications, tooling and automation.",
+              "icon": "code",
+              "tags": [
+                "Python",
+                "Java",
+                "C++",
+                "SQL"
+              ]
+            },
+            {
+              "title": "Data and Business Intelligence",
+              "description": "Transforming raw information into clear, understandable insight.",
+              "icon": "chart",
+              "tags": [
+                "Power BI",
+                "Excel",
+                "Dashboards",
+                "Data Cleaning"
+              ]
+            },
+            {
+              "title": "Platforms and Tools",
+              "description": "Developing and shipping with a modern cloud and dev toolchain.",
+              "icon": "layers",
+              "tags": [
+                "Azure",
+                "Databricks",
+                "Flask",
+                "Git",
+                "GitHub"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "about-experience",
+          "type": "timeline",
+          "eyebrow": "Experience",
+          "heading": "Professional Experience",
+          "items": [
+            {
+              "title": "Data Analyst Intern",
+              "organisation": "Plan India",
+              "period": "2024 – Present",
+              "description": "Supported data analysis, Power BI dashboards, Excel reporting, SharePoint optimisation, AI chatbot research and knowledge-management activities.",
+              "highlights": [
+                "Supported data analysis and Power BI dashboard development.",
+                "Delivered Excel reporting and SharePoint optimisation.",
+                "Contributed to AI chatbot research and knowledge-management activities."
+              ]
+            },
+            {
+              "title": "Technical Mentor",
+              "organisation": "Click at Career",
+              "period": "2024 – Present",
+              "description": "Mentored students in Python, Machine Learning, Data Analytics, programming and structured problem-solving.",
+              "highlights": [
+                "Mentored students in Python and Machine Learning fundamentals.",
+                "Guided Data Analytics coursework and hands-on programming practice.",
+                "Coached structured problem-solving techniques."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "about-education",
+          "type": "timeline",
+          "eyebrow": "Education",
+          "heading": "Academic Background",
+          "surface": true,
+          "items": [
+            {
+              "title": "Master of Computer Applications",
+              "organisation": "Institution",
+              "period": "2024 – 2026",
+              "description": "Developing advanced knowledge in computer applications, software development, Artificial Intelligence, Machine Learning, databases and modern computing practices.",
+              "highlights": [
+                "Advanced coursework in computer applications and software development.",
+                "Focused study in Artificial Intelligence and Machine Learning.",
+                "Coverage of databases and modern computing practices."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "about-cta",
+          "type": "cta",
+          "eyebrow": "Selected Work",
+          "heading": "See How I Apply These Skills",
+          "description": "Explore selected projects demonstrating my work in AI, Machine Learning, Computer Vision and Data Analytics.",
+          "style": "solid",
+          "primaryCta": {
+            "label": "Explore Projects",
+            "url": "/projects"
+          }
+        }
+      ]
+    },
+    {
+      "id": "projects",
+      "path": "/projects",
+      "seo": {
+        "title": "AI and Machine Learning Projects | Rohit Sachdeva",
+        "description": "Explore AI, Machine Learning, Computer Vision, Python and Data Analytics projects developed by Rohit Sachdeva.",
+        "keywords": [
+          "Machine Learning Projects",
+          "AI Projects",
+          "Computer Vision Projects",
+          "Python Projects",
+          "TensorFlow Projects",
+          "OpenCV Projects",
+          "Data Analytics Portfolio"
+        ],
+        "canonical": "/projects"
+      },
+      "sections": [
+        {
+          "id": "projects-hero",
+          "type": "hero",
+          "eyebrow": "My Work",
+          "heading": "AI, Machine Learning and Data Projects",
+          "description": "A selection of projects demonstrating my experience with Artificial Intelligence, Machine Learning, Deep Learning, Computer Vision, Data Analytics and Python development.",
+          "image": "/images/projects-hero.webp",
+          "imageAlt": "Artificial Intelligence, Machine Learning and data project visualisation",
+          "primaryCta": {
+            "label": "Contact Me",
+            "url": "/contact"
+          }
+        },
+        {
+          "id": "projects-list",
+          "type": "projects",
+          "eyebrow": "Project Portfolio",
+          "heading": "Featured Development and Research Work",
+          "description": "Each project highlights a different area of Artificial Intelligence, Machine Learning or Computer Vision."
+        },
+        {
+          "id": "projects-cta",
+          "type": "cta",
+          "eyebrow": "Collaboration",
+          "heading": "Interested in My Work?",
+          "description": "Get in touch to discuss an internship, project, collaboration or professional opportunity.",
+          "style": "solid",
+          "primaryCta": {
+            "label": "Contact Me",
+            "url": "/contact"
+          },
+          "secondaryCta": {
+            "label": "Visit GitHub",
+            "url": "https://github.com/Rohit9911488",
+            "external": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "path": "/contact",
+      "seo": {
+        "title": "Contact Rohit Sachdeva | AI and Machine Learning Opportunities",
+        "description": "Contact Rohit Sachdeva to discuss AI, Machine Learning, Python, Computer Vision, Data Analytics, internships and project opportunities.",
+        "keywords": [
+          "Contact AI Developer",
+          "Hire Machine Learning Developer",
+          "Python Developer Contact",
+          "Data Analyst Contact",
+          "AI Internship"
+        ],
+        "canonical": "/contact"
+      },
+      "sections": [
+        {
+          "id": "contact-hero",
+          "type": "hero",
+          "eyebrow": "Get in Touch",
+          "heading": "Let’s Connect and Discuss New Opportunities",
+          "description": "Have a project, internship, collaboration or professional opportunity to discuss? Send me a message and I will get back to you.",
+          "image": "/images/contact-hero.webp",
+          "imageAlt": "Digital communication network representing professional collaboration",
+          "primaryCta": {
+            "label": "Send an Email",
+            "url": "mailto:sachdevarohit492@gmail.com"
+          }
+        },
+        {
+          "id": "contact-details",
+          "type": "contactDetails",
+          "eyebrow": "Contact Details",
+          "heading": "Ways to Reach Me",
+          "items": [
+            {
+              "label": "Email",
+              "value": "sachdevarohit492@gmail.com",
+              "url": "mailto:sachdevarohit492@gmail.com"
+            },
+            {
+              "label": "Phone",
+              "value": "+91 00000 00000",
+              "url": "tel:+910000000000"
+            },
+            {
+              "label": "LinkedIn",
+              "value": "Connect on LinkedIn",
+              "url": "https://www.linkedin.com/in/rohitsachdeva2003"
+            },
+            {
+              "label": "GitHub",
+              "value": "Explore my code and projects",
+              "url": "https://github.com/Rohit9911488"
+            }
+          ]
+        },
+        {
+          "id": "contact-form",
+          "type": "form",
+          "eyebrow": "Send a Message",
+          "heading": "Tell Me What You Would Like to Discuss",
+          "description": "Complete the form to discuss an opportunity, project or collaboration.",
+          "submitLabel": "Send Message",
+          "successMessage": "Thank you for reaching out. Your message has been sent successfully.",
+          "errorMessage": "Your message could not be sent. Please try again or contact me directly by email.",
+          "fields": [
+            {
+              "name": "fullName",
+              "label": "Full Name",
+              "type": "text",
+              "placeholder": "Enter your full name",
+              "required": true
+            },
+            {
+              "name": "email",
+              "label": "Email Address",
+              "type": "email",
+              "placeholder": "Enter your email address",
+              "required": true
+            },
+            {
+              "name": "enquiryType",
+              "label": "Enquiry Type",
+              "type": "select",
+              "required": true,
+              "options": [
+                "Job Opportunity",
+                "Internship Opportunity",
+                "Project Collaboration",
+                "AI or Machine Learning Project",
+                "Data Analytics Project",
+                "Technical Mentoring",
+                "General Enquiry"
+              ]
+            },
+            {
+              "name": "subject",
+              "label": "Subject",
+              "type": "text",
+              "placeholder": "What would you like to discuss?",
+              "required": true
+            },
+            {
+              "name": "message",
+              "label": "Message",
+              "type": "textarea",
+              "placeholder": "Tell me about the opportunity, project or collaboration",
+              "required": true
+            },
+            {
+              "name": "privacyConsent",
+              "label": "I agree that my information may be used to respond to this enquiry.",
+              "type": "checkbox",
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "contact-cta",
+          "type": "cta",
+          "eyebrow": "Professional Profile",
+          "heading": "Ready to Start a Conversation?",
+          "description": "I’m open to discussions around AI, Machine Learning, Python development, Computer Vision and Data Analytics opportunities.",
+          "primaryCta": {
+            "label": "Download Resume",
+            "url": "/rohit-sachdeva-resume.pdf",
+            "external": true
+          },
+          "secondaryCta": {
+            "label": "View Projects",
+            "url": "/projects"
+          }
+        }
+      ]
+    }
+  ]
+}

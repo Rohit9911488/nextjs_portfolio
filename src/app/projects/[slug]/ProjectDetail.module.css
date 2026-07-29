@@ -1,0 +1,137 @@
+.page {
+  padding: 3rem 0 5rem;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  transition: color 0.2s ease;
+}
+
+.back:hover {
+  color: var(--color-foreground);
+}
+
+.header {
+  max-width: 48rem;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.category {
+  font-family: var(--font-face-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.title {
+  font-family: var(--font-face-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-foreground);
+}
+
+.description {
+  margin-top: 1rem;
+  max-width: 42rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.tag {
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font-family: var(--font-face-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.media {
+  margin: 2.5rem 0;
+}
+
+.image,
+.placeholder {
+  width: 100%;
+  max-height: 28rem;
+  object-fit: cover;
+}
+
+.placeholder {
+  min-height: 16rem;
+}
+
+.prose {
+  max-width: 48rem;
+  color: var(--color-foreground);
+  line-height: 1.75;
+}
+
+.prose :where(h2, h3, h4) {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-face-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-foreground);
+}
+
+.prose :where(p, ul, ol, blockquote) {
+  margin-bottom: 1rem;
+  color: var(--color-muted);
+}
+
+.prose :where(a) {
+  color: var(--color-foreground);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.prose :where(ul, ol) {
+  padding-left: 1.25rem;
+}
+
+.emptyBody {
+  max-width: 48rem;
+  font-size: 1rem;
+  color: var(--color-muted);
+}

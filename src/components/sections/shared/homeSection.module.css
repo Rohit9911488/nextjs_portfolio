@@ -1,0 +1,67 @@
+.shell {
+  width: 100%;
+}
+
+.head {
+  width: 100%;
+  margin-bottom: clamp(40px, 5vw, 60px);
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.heading {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.description {
+  margin-top: 16px;
+  max-width: 52rem;
+  margin-inline: auto;
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+
+.cta {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Light stack cards (projects, etc.) */
+.eyebrowMuted {
+  color: var(--muted);
+}
+
+.headingForeground {
+  color: var(--foreground);
+}
+
+.descriptionMuted {
+  color: var(--muted);
+}
+
+/* Inverse stack card (expertise) */
+.eyebrowInverse {
+  color: color-mix(in srgb, var(--background) 60%, transparent);
+}
+
+.headingInverse {
+  color: var(--background);
+}
+
+.descriptionInverse {
+  color: color-mix(in srgb, var(--background) 70%, transparent);
+}

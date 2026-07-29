@@ -1,0 +1,24 @@
+/* Homepage stack scroll — visible gutter tone between pinned cards. */
+.stack {
+  background: linear-gradient(
+    to bottom,
+    var(--background) 0%,
+    var(--card-stack-backdrop) 15%,
+    var(--card-stack-backdrop) 85%,
+    var(--background) 100%
+  );
+}
+
+/* Inner pages (about, projects, contact) — one soft wash, no banded plateau. */
+.flush {
+  --page-wash: color-mix(in srgb, var(--surface) 28%, var(--background));
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--background) 0%,
+      var(--page-wash) 22%,
+      var(--page-wash) 78%,
+      var(--background) 100%
+    );
+}

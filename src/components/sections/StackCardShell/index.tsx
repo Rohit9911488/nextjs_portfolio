@@ -1,0 +1,40 @@
+import type { ReactNode } from "react";
+import styles from "./StackCardShell.module.css";
+
+const BACKGROUND_STYLES = {
+  surface1: styles.surface1,
+  surface2: styles.surface2,
+  inverse: styles.inverse,
+} as const;
+
+export default function StackCardShell({
+  children,
+  background,
+  zIndexClassName,
+  cardVariant = "default",
+}: {
+  children: ReactNode;
+  background: keyof typeof BACKGROUND_STYLES;
+  zIndexClassName: string;
+  cardVariant?: "default" | "relaxed" | "compact";
+}) {
+  const cardClass =
+    cardVariant === "relaxed"
+      ? `${styles.card} ${styles.cardRelaxed}`
+      : cardVariant === "compact"
+        ? `${styles.card} ${styles.cardCompact}`
+        : styles.card;
+
+  return (
+    <section
+      data-stack-card
+      className={`${styles.stackCard} relative md:min-h-screen ${zIndexClassName}`}
+    >
+      <div className="page-container flex w-full flex-col py-6 sm:py-8 md:min-h-screen md:py-10">
+        <div className={`${cardClass} w-full ${BACKGROUND_STYLES[background]}`}>
+          <div className="relative w-full">{children}</div>
+        </div>
+      </div>
+    </section>
+  );
+}

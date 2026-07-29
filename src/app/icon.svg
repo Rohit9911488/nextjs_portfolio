@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none" role="img" aria-label="Rohit Sachdeva">
+  <style>
+    .mark {
+      stroke: #0a0a0a;
+      fill: #0a0a0a;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .mark {
+        stroke: #f5f5f5;
+        fill: #f5f5f5;
+      }
+    }
+  </style>
+  <path
+    class="mark"
+    d="M4 4h11a9 9 0 0 1 0 18h-4l14 14"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+  <circle class="mark" cx="5" cy="34" r="3" />
+  <circle class="mark" cx="30" cy="6" r="2" />
+  <circle class="mark" cx="36" cy="12" r="1.6" />
+</svg>
