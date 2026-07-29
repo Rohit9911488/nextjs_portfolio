@@ -28,6 +28,7 @@ export default function StackCardShell({
   return (
     <section
       data-stack-card
+      data-inverse-shell={background === "inverse" ? "" : undefined}
       className={`${styles.stackCard} relative md:min-h-screen ${zIndexClassName}`}
     >
       <div className="page-container flex w-full flex-col py-6 sm:py-8 md:min-h-screen md:py-10">

@@ -16,18 +16,18 @@ export default function Cta({
       <StackCardShell background="inverse" zIndexClassName="md:z-[4]">
         <div className="mx-auto flex w-full max-w-3xl flex-col items-start text-left sm:items-center sm:text-center">
           {data.eyebrow && (
-            <p data-stack="eyebrow" className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-background/60">
+            <p data-stack="eyebrow" className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[color:color-mix(in_srgb,var(--on-inverse)_60%,transparent)]">
               {data.eyebrow}
             </p>
           )}
           <h2
             data-stack="heading"
-            className="mt-4 text-4xl font-bold tracking-tight text-background sm:text-5xl lg:text-6xl"
+            className="mt-4 text-4xl font-bold tracking-tight text-[color:var(--on-inverse)] sm:text-5xl lg:text-6xl"
           >
             {data.heading}
           </h2>
           {data.description && (
-            <p data-stack="body" className="mt-4 text-base leading-7 text-background/70 sm:text-lg">
+            <p data-stack="body" className="mt-4 text-base leading-7 text-[color:color-mix(in_srgb,var(--on-inverse)_70%,transparent)] sm:text-lg">
               {data.description}
             </p>
           )}

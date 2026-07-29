@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { isAdminAuthorized } from "@/lib/auth";
 import { prisma } from "@/lib/db/prisma";
+import { isValidProjectImageValue, normalizeProjectImageValue } from "@/lib/project-image";
 import { revalidateProjects } from "@/lib/revalidate";
 
 type RouteContext = {
@@ -20,6 +21,13 @@ export async function PUT(request: Request, context: RouteContext) {
     return NextResponse.json({ error: "Project not found" }, { status: 404 });
   }
 
+  if (typeof body.image === "string" && !isValidProjectImageValue(body.image)) {
+    return NextResponse.json(
+      { error: "Image must be a public path (e.g. /images/project.jpg) or an http(s) URL" },
+      { status: 400 },
+    );
+  }
+
   const project = await prisma.project.update({
     where: { slug },
     data: {
@@ -27,7 +35,7 @@ export async function PUT(request: Request, context: RouteContext) {
       category: typeof body.category === "string" ? body.category : undefined,
       description: typeof body.description === "string" ? body.description : undefined,
       icon: typeof body.icon === "string" ? body.icon : undefined,
-      image: typeof body.image === "string" ? body.image : undefined,
+      image: typeof body.image === "string" ? normalizeProjectImageValue(body.image) : undefined,
       imageAlt: typeof body.imageAlt === "string" ? body.imageAlt : undefined,
       contentHtml: typeof body.contentHtml === "string" ? body.contentHtml : undefined,
       featured: typeof body.featured === "boolean" ? body.featured : undefined,

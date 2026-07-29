@@ -52,3 +52,17 @@
   transform: translateY(-2px);
   background-color: color-mix(in srgb, var(--background) 10%, transparent);
 }
+
+:global([data-inverse-shell]) .inverse {
+  background-color: var(--on-inverse);
+  color: var(--card-inverse);
+}
+
+:global([data-inverse-shell]) .inverseOutline {
+  border: 1px solid color-mix(in srgb, var(--on-inverse) 40%, transparent);
+  color: var(--on-inverse);
+}
+
+:global([data-inverse-shell]) .inverseOutline:hover {
+  background-color: color-mix(in srgb, var(--on-inverse) 10%, transparent);
+}

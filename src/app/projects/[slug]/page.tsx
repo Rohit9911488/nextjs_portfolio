@@ -2,7 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PlaceholderImage from "@/components/PlaceholderImage";
+import ProjectImage from "@/components/ProjectImage";
 import { getSite } from "@/lib/content";
+import { hasProjectImage } from "@/lib/project-image";
 import { getProjectBySlug, getPublishedProjectSlugs } from "@/lib/db/projects";
 import { ProjectIcon } from "@/components/sections/shared/projectIcons";
 import styles from "./ProjectDetail.module.css";
@@ -72,9 +74,17 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         </header>
 
         <div className={styles.media}>
-          {project.image ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={project.image} alt={project.imageAlt} className={styles.image} />
+          {hasProjectImage(project.image) ? (
+            <div className={styles.imageWrap}>
+              <ProjectImage
+                src={project.image}
+                alt={project.imageAlt}
+                fill
+                className={styles.image}
+                sizes="(max-width: 768px) 100vw, 75rem"
+                priority
+              />
+            </div>
           ) : (
             <PlaceholderImage alt={project.imageAlt} className={styles.placeholder} />
           )}

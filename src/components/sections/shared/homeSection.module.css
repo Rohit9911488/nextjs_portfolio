@@ -55,13 +55,13 @@
 
 /* Inverse stack card (expertise) */
 .eyebrowInverse {
-  color: color-mix(in srgb, var(--background) 60%, transparent);
+  color: color-mix(in srgb, var(--on-inverse) 60%, transparent);
 }
 
 .headingInverse {
-  color: var(--background);
+  color: var(--on-inverse);
 }
 
 .descriptionInverse {
-  color: color-mix(in srgb, var(--background) 70%, transparent);
+  color: color-mix(in srgb, var(--on-inverse) 70%, transparent);
 }

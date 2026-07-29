@@ -26,8 +26,8 @@
 }
 
 .inverse {
-  background-color: var(--foreground);
-  color: var(--background);
+  background-color: var(--card-inverse);
+  color: var(--on-inverse);
 }
 
 .card {

@@ -25,7 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["500", "600"],
 });
 
-const themeInitScript = `(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',d);}catch(e){}})();`;
+const themeInitScript = `(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':true;document.documentElement.classList.toggle('dark',d);}catch(e){document.documentElement.classList.add('dark');}})();`;
 
 export async function generateMetadata(): Promise<Metadata> {
   const site = await getSite();

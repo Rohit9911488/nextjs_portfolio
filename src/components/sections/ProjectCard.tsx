@@ -1,6 +1,6 @@
-import Image from "next/image";
 import ProjectFallback from "@/components/ProjectFallback";
-import { publicAssetExists } from "@/lib/assets";
+import ProjectImage from "@/components/ProjectImage";
+import { hasProjectImage } from "@/lib/project-image";
 import type { ProjectItem } from "@/types/content";
 
 export default function ProjectCard({
@@ -10,7 +10,7 @@ export default function ProjectCard({
   project: ProjectItem;
   index?: number;
 }) {
-  const hasImage = publicAssetExists(project.image);
+  const hasImage = hasProjectImage(project.image);
 
   return (
     <article className="group theme-transition flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface/60 transition-all duration-300 hover:-translate-y-1.5 hover:border-border-strong hover:shadow-[0_0_0_1px_var(--border-strong),0_24px_48px_-28px_rgba(0,0,0,0.35)] dark:hover:shadow-[0_0_0_1px_var(--border-strong),0_24px_48px_-28px_rgba(255,255,255,0.15)]">
@@ -22,11 +22,12 @@ export default function ProjectCard({
         )}
         {hasImage ? (
           <div className="relative aspect-4/3 w-full overflow-hidden">
-            <Image
+            <ProjectImage
               src={project.image}
               alt={project.imageAlt}
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
         ) : (

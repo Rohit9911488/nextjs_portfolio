@@ -15,6 +15,8 @@
   --card-surface-1: #ffffff;
   --card-surface-2: #f4f4f5;
   --card-stack-backdrop: #e4e4e7;
+  --card-inverse: var(--foreground);
+  --on-inverse: var(--background);
   color-scheme: light;
 }
 
@@ -28,6 +30,8 @@
   --card-surface-1: #141416;
   --card-surface-2: #19191b;
   --card-stack-backdrop: #000000;
+  --card-inverse: var(--card-surface-2);
+  --on-inverse: var(--foreground);
   color-scheme: dark;
 }
 
