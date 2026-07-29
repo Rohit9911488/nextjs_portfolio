@@ -16,7 +16,7 @@ export default function SectionShell({
 }) {
   return (
     <section
-      className={`relative z-10 flex flex-col justify-center overflow-hidden py-24 sm:py-32 md:py-36 ${minHeightClassName} ${className}`}
+      className={`relative z-10 flex flex-col justify-center overflow-hidden py-[var(--section-mobile-pad-block)] md:py-32 lg:py-36 ${minHeightClassName} ${className}`}
     >
       <Reveal className="page-container">{children}</Reveal>
     </section>

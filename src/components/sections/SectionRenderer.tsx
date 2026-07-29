@@ -1,12 +1,14 @@
+import dynamic from "next/dynamic";
 import type { SectionData } from "@/types/content";
-import Cards from "./Cards";
-import ContactDetails from "./ContactDetails";
-import ContactForm from "./ContactForm";
-import Content from "./Content";
-import Cta from "./Cta";
 import Hero from "./Hero";
+import Content from "./Content";
+import Cards from "./Cards";
 import Projects from "./Projects";
 import Timeline from "./Timeline";
+import ContactDetails from "./ContactDetails";
+import Cta from "./Cta";
+
+const ContactForm = dynamic(() => import("./ContactForm"));
 
 export default function SectionRenderer({
   section,

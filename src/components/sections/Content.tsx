@@ -1,8 +1,10 @@
+import dynamic from "next/dynamic";
 import CtaButton from "@/components/CtaButton";
-import AboutBackground from "./AboutBackground";
 import type { ContentSectionData } from "@/types/content";
-import HomeAbout from "./HomeAbout";
 import SectionShell from "./SectionShell";
+
+const HomeAbout = dynamic(() => import("./HomeAbout"));
+const AboutBackground = dynamic(() => import("./AboutBackground"));
 
 export default function Content({
   data,

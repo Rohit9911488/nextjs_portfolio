@@ -1,8 +1,10 @@
+import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { getPageByPath } from "@/lib/content";
-import StackScroll from "./sections/StackScroll";
 import StackBackdrop from "./sections/StackBackdrop";
 import SectionRenderer from "./sections/SectionRenderer";
+
+const StackScroll = dynamic(() => import("./sections/StackScroll"));
 
 const isOnePager = process.env.ONE_PAGER === "true";
 

@@ -1,3 +1,18 @@
+.root {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.rootVisible {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    transition: none;
+  }
+}
+
 .parallax {
   translate: var(--parallax-x, 0px) var(--parallax-y, 0px);
 }

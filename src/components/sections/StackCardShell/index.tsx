@@ -31,7 +31,7 @@ export default function StackCardShell({
       data-inverse-shell={background === "inverse" ? "" : undefined}
       className={`${styles.stackCard} relative md:min-h-screen ${zIndexClassName}`}
     >
-      <div className="page-container flex w-full flex-col py-6 sm:py-8 md:min-h-screen md:py-10">
+      <div className={`${styles.shell} flex w-full flex-col md:min-h-screen md:py-10`}>
         <div className={`${cardClass} w-full ${BACKGROUND_STYLES[background]}`}>
           <div className="relative w-full">{children}</div>
         </div>

@@ -1,5 +1,4 @@
 import type Lenis from "lenis";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 let lenisRef: Lenis | null = null;
 
@@ -17,17 +16,6 @@ export function getScrollY() {
   }
 
   return window.scrollY;
-}
-
-let refreshFrame = 0;
-
-/** Keep Lenis scroll limits and ScrollTrigger in sync after layout changes. */
-export function refreshScroll() {
-  cancelAnimationFrame(refreshFrame);
-  refreshFrame = requestAnimationFrame(() => {
-    lenisRef?.resize();
-    ScrollTrigger.refresh();
-  });
 }
 
 export function scrollToTop() {

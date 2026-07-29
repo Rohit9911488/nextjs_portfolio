@@ -9,12 +9,12 @@ export default function Cta({
   variant = "default",
 }: {
   data: CtaSectionData;
-  variant?: "default" | "home" | "about";
+  variant?: "default" | "home" | "about" | "projects";
 }) {
   if (variant === "home") {
     return (
       <StackCardShell background="inverse" zIndexClassName="md:z-[4]">
-        <div className="mx-auto flex w-full max-w-3xl flex-col items-start text-left sm:items-center sm:text-center">
+        <div className="flex w-full max-w-3xl flex-col items-start text-left sm:mx-auto sm:items-center sm:text-center">
           {data.eyebrow && (
             <p data-stack="eyebrow" className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[color:color-mix(in_srgb,var(--on-inverse)_60%,transparent)]">
               {data.eyebrow}
@@ -44,7 +44,7 @@ export default function Cta({
 
   if (data.style === "solid") {
     const shell = (
-      <div className="w-full rounded-[1.75rem] bg-foreground px-6 py-14 text-left sm:px-12 sm:py-20 sm:text-center">
+      <div className="w-full rounded-none bg-foreground px-[var(--section-mobile-pad-inline)] py-[var(--section-mobile-pad-block)] text-left md:rounded-[1.75rem] md:px-12 md:py-20 sm:text-center">
         {data.eyebrow && (
           <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-background/60">
             {data.eyebrow}
@@ -54,7 +54,7 @@ export default function Cta({
           {data.heading}
         </h2>
         {data.description && (
-          <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-background/70 sm:text-lg">
+          <p className="mt-4 max-w-xl text-base leading-7 text-background/70 sm:mx-auto sm:text-lg">
             {data.description}
           </p>
         )}
@@ -67,7 +67,7 @@ export default function Cta({
       </div>
     );
 
-    if (variant === "about") {
+    if (variant === "about" || variant === "projects") {
       return (
         <section className={aboutShared.section}>
           <div className={aboutShared.wrap}>{shell}</div>
@@ -80,7 +80,7 @@ export default function Cta({
 
   return (
     <SectionShell minHeightClassName="min-h-105 sm:min-h-120">
-      <div className="mx-auto flex w-full max-w-3xl flex-col items-start text-left sm:items-center sm:text-center">
+      <div className="flex w-full max-w-3xl flex-col items-start text-left sm:mx-auto sm:items-center sm:text-center">
         {data.eyebrow && (
           <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-muted">
             {data.eyebrow}

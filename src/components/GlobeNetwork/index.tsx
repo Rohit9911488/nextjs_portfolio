@@ -1,16 +1,29 @@
 "use client";
 
-import { useEffect, useRef, type CSSProperties } from "react";
-import { generateGlobeData } from "@/lib/globe";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { generateGlobeData, type GlobeData } from "@/lib/globe";
 import styles from "./GlobeNetwork.module.css";
 
-const DATA = generateGlobeData();
 const CLIP_ID = "globe-sphere-clip";
+const LOAD_DELAY_MS = 250;
 
 export default function GlobeNetwork() {
   const groupRef = useRef<SVGGElement>(null);
+  const [data, setData] = useState<GlobeData | null>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setData(generateGlobeData());
+      requestAnimationFrame(() => setVisible(true));
+    }, LOAD_DELAY_MS);
+
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!data) return;
+
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const finePointer = window.matchMedia("(pointer: fine)").matches;
     if (reduceMotion || !finePointer) return;
@@ -45,28 +58,32 @@ export default function GlobeNetwork() {
       window.removeEventListener("pointermove", onPointerMove);
       cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [data]);
 
-  const { center, radius, orbit } = DATA;
+  if (!data) {
+    return null;
+  }
+
+  const { center, radius, orbit } = data;
 
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 z-0 flex select-none items-center justify-center overflow-hidden"
+      className={`pointer-events-none absolute inset-0 z-0 flex select-none items-center justify-center overflow-hidden ${styles.root} ${visible ? styles.rootVisible : ""}`}
     >
       <div
         className="absolute rounded-full bg-foreground opacity-[0.05] blur-3xl dark:opacity-[0.08]"
         style={{
-          width: "clamp(360px, 60vw, 760px)",
-          height: "clamp(360px, 60vw, 760px)",
+          width: "clamp(280px, 52vw, 760px)",
+          height: "clamp(280px, 52vw, 760px)",
         }}
       />
 
       <svg
-        viewBox={DATA.viewBox}
+        viewBox={data.viewBox}
         focusable="false"
         role="presentation"
-        className="w-[clamp(360px,120vw,600px)] max-w-none text-foreground/70 opacity-80 sm:w-[clamp(480px,70vw,860px)] dark:opacity-70"
+        className="w-[clamp(260px,92vw,600px)] max-w-none text-foreground/70 opacity-80 sm:w-[clamp(480px,70vw,860px)] dark:opacity-70"
         style={{ aspectRatio: "1 / 1" }}
       >
         <defs>
@@ -77,7 +94,7 @@ export default function GlobeNetwork() {
 
         <g ref={groupRef} className={styles.parallax}>
           <g>
-            {DATA.strays.map((dot) => (
+            {data.strays.map((dot) => (
               <circle
                 key={`s${dot.id}`}
                 cx={dot.x}
@@ -140,7 +157,7 @@ export default function GlobeNetwork() {
 
           <g clipPath={`url(#${CLIP_ID})`}>
             <g>
-              {DATA.parallels.map((parallel) => (
+              {data.parallels.map((parallel) => (
                 <ellipse
                   key={`p${parallel.id}`}
                   cx={center.x}
@@ -156,7 +173,7 @@ export default function GlobeNetwork() {
             </g>
 
             <g>
-              {DATA.meridians.map((meridian) => (
+              {data.meridians.map((meridian) => (
                 <ellipse
                   key={`m${meridian.id}`}
                   className={styles.meridian}
@@ -179,7 +196,7 @@ export default function GlobeNetwork() {
             </g>
 
             <g>
-              {DATA.arcs.map((arc) => (
+              {data.arcs.map((arc) => (
                 <path
                   key={`a${arc.id}`}
                   d={arc.d}
@@ -198,7 +215,7 @@ export default function GlobeNetwork() {
             </g>
 
             <g>
-              {DATA.nodes.map((node) => (
+              {data.nodes.map((node) => (
                 <circle
                   key={`n${node.id}`}
                   cx={node.x}

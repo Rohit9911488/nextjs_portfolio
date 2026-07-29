@@ -4,7 +4,7 @@ import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ScrollRefresh from "@/components/ScrollRefresh";
-import SmoothScroll from "@/components/SmoothScroll";
+import SmoothScrollDeferred from "@/components/SmoothScrollDeferred";
 import { getSite } from "@/lib/content";
 import "./globals.css";
 
@@ -50,7 +50,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-        <SmoothScroll>
+        <SmoothScrollDeferred>
           <Suspense fallback={null}>
             <ScrollRefresh />
           </Suspense>
@@ -59,7 +59,7 @@ export default function RootLayout({
             <main className="flex flex-1 flex-col">{children}</main>
             <Footer />
           </div>
-        </SmoothScroll>
+        </SmoothScrollDeferred>
       </body>
     </html>
   );

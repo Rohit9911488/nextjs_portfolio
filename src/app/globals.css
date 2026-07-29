@@ -10,6 +10,9 @@
   --border-strong: rgb(10 10 10 / 100%);
   --surface: #f3f3f3;
   --header-height: 5.5rem;
+  --hero-mobile-pad: 2.5rem;
+  --section-mobile-pad-block: 5rem;
+  --section-mobile-pad-inline: 1.5rem;
   --container-max: 75rem;
   --container-padding: 1.5rem;
   --card-surface-1: #ffffff;

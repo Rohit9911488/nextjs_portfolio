@@ -2,7 +2,8 @@
 
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
-import { getLenis, refreshScroll } from "@/lib/scroll";
+import { getLenis } from "@/lib/scroll";
+import { refreshScroll } from "@/lib/scroll-sync";
 
 export default function ScrollRefresh() {
   const pathname = usePathname();

@@ -133,11 +133,6 @@
     display: none;
   }
 
-  .cta {
-    width: 100%;
-    justify-content: center;
-  }
-
   .fact {
     gap: 14px;
     grid-template-columns: 104px 1fr;

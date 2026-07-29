@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  padding: clamp(72px, 10vh, 130px) 0;
+  padding: 0;
 }
 
 .wrap {
@@ -28,8 +28,8 @@
 
 .centerHead {
   max-width: 620px;
-  margin: 0 auto 54px;
-  text-align: center;
+  margin: 0 0 54px;
+  text-align: left;
 }
 
 .eyebrow {
@@ -58,4 +58,56 @@
   font-size: 15.5px;
   line-height: 1.6;
   color: var(--muted);
+}
+
+@media (max-width: 767px) {
+  .section {
+    overflow-x: clip;
+  }
+
+  .wrap {
+    max-width: none;
+    padding: var(--section-mobile-pad-block) 0 0;
+  }
+
+  .section + .section .wrap {
+    padding-top: 0;
+  }
+
+  .section:not(:last-of-type) .wrap {
+    padding-bottom: var(--section-mobile-pad-block);
+  }
+
+  .section:last-of-type .wrap {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .centerHead {
+    padding: 0 var(--section-mobile-pad-inline) 1.25rem;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 640px) {
+  .centerHead {
+    margin-inline: auto;
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .section {
+    overflow-x: visible;
+    padding: clamp(72px, 10vh, 130px) 0;
+  }
+
+  .wrap {
+    padding: 0 var(--container-padding);
+  }
+
+  .centerHead {
+    padding: 0;
+    margin-bottom: 54px;
+  }
 }

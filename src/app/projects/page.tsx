@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Hero from "@/components/sections/Hero";
 import StackBackdrop from "@/components/sections/StackBackdrop";
 import ProjectsListing from "@/components/sections/ProjectsListing";
-import SectionRenderer from "@/components/sections/SectionRenderer";
+import Cta from "@/components/sections/Cta";
 import { getPageByPath, getSite } from "@/lib/content";
 import { buildPageMetadata } from "@/lib/seo";
 import type { CtaSectionData, HeroSectionData, ProjectsSectionData } from "@/types/content";
@@ -31,7 +32,7 @@ export default async function ProjectsPage({ searchParams }: ProjectsPageProps) 
 
   return (
     <>
-      {hero && <SectionRenderer section={hero} />}
+      {hero && <Hero data={hero} />}
       <StackBackdrop variant="flush">
         {listing && (
           <ProjectsListing
@@ -40,7 +41,7 @@ export default async function ProjectsPage({ searchParams }: ProjectsPageProps) 
             pageParam={params.page}
           />
         )}
-        {cta && <SectionRenderer section={cta} />}
+        {cta && <Cta data={cta} variant="projects" />}
       </StackBackdrop>
     </>
   );

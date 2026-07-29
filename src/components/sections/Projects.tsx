@@ -25,7 +25,7 @@ export default async function Projects({
   return (
     <SectionShell>
       <div className="w-full">
-        <div className="mx-auto flex max-w-2xl flex-col items-start text-left sm:items-center sm:text-center">
+        <div className="flex w-full max-w-2xl flex-col items-start text-left sm:mx-auto sm:items-center sm:text-center">
           {data.eyebrow && (
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-muted">
               {data.eyebrow}

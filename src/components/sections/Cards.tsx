@@ -1,8 +1,10 @@
-import AboutSkills from "./AboutSkills";
+import dynamic from "next/dynamic";
 import type { CardsSectionData } from "@/types/content";
-import HomeCards from "./HomeCards";
 import SectionShell from "./SectionShell";
 import Icon from "@/components/Icon";
+
+const HomeCards = dynamic(() => import("./HomeCards"));
+const AboutSkills = dynamic(() => import("./AboutSkills"));
 
 export default function Cards({
   data,
@@ -22,7 +24,7 @@ export default function Cards({
   return (
     <SectionShell>
       <div className="w-full">
-        <div className="mx-auto flex max-w-2xl flex-col items-start text-left sm:items-center sm:text-center">
+        <div className="flex w-full max-w-2xl flex-col items-start text-left sm:mx-auto sm:items-center sm:text-center">
           {data.eyebrow && (
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-muted">
               {data.eyebrow}
