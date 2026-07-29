@@ -3,6 +3,31 @@ import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { createClient } from "@libsql/client/web";
 
+const MIGRATIONS = [
+  { folder: "20260729105240_init", table: "Project" },
+  { folder: "20260729142000_add_page_table", table: "Page" },
+] as const;
+
+async function tableExists(client: ReturnType<typeof createClient>, tableName: string) {
+  const result = await client.execute({
+    sql: "SELECT name FROM sqlite_master WHERE type = 'table' AND name = ? LIMIT 1",
+    args: [tableName],
+  });
+
+  return result.rows.length > 0;
+}
+
+async function applyMigration(
+  client: ReturnType<typeof createClient>,
+  migrationsDir: string,
+  folder: string,
+) {
+  const sqlPath = path.join(migrationsDir, folder, "migration.sql");
+  const sql = readFileSync(sqlPath, "utf8");
+  console.log(`Applying migration: ${folder}`);
+  await client.executeMultiple(sql);
+}
+
 async function main() {
   const url = process.env.DATABASE_URL;
   const authToken = process.env.TURSO_AUTH_TOKEN;
@@ -16,30 +41,24 @@ async function main() {
   }
 
   const client = createClient({ url, authToken });
+  const migrationsDir = path.join(process.cwd(), "prisma/migrations");
+  let applied = 0;
 
-  const existing = await client.execute(
-    "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'Project' LIMIT 1",
-  );
+  for (const migration of MIGRATIONS) {
+    const exists = await tableExists(client, migration.table);
 
-  if (existing.rows.length > 0) {
-    console.log("Turso schema already exists, skipping migration apply.");
+    if (!exists) {
+      await applyMigration(client, migrationsDir, migration.folder);
+      applied += 1;
+    }
+  }
+
+  if (applied === 0) {
+    console.log("Turso schema is up to date.");
     return;
   }
 
-  const migrationsDir = path.join(process.cwd(), "prisma/migrations");
-  const migrationFolders = readdirSync(migrationsDir, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name)
-    .sort();
-
-  for (const folder of migrationFolders) {
-    const sqlPath = path.join(migrationsDir, folder, "migration.sql");
-    const sql = readFileSync(sqlPath, "utf8");
-    console.log(`Applying migration: ${folder}`);
-    await client.executeMultiple(sql);
-  }
-
-  console.log("Turso schema is up to date.");
+  console.log(`Applied ${applied} migration(s). Turso schema is up to date.`);
 }
 
 main().catch((error) => {

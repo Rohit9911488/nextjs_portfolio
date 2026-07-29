@@ -12,13 +12,13 @@ type ProjectsPageProps = {
 };
 
 export async function generateMetadata(): Promise<Metadata> {
-  const page = getPageByPath("/projects");
+  const page = await getPageByPath("/projects");
   const site = await getSite();
   return page ? buildPageMetadata(page, site) : {};
 }
 
 export default async function ProjectsPage({ searchParams }: ProjectsPageProps) {
-  const page = getPageByPath("/projects");
+  const page = await getPageByPath("/projects");
   if (!page) {
     return null;
   }

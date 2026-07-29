@@ -8,8 +8,8 @@ const StackScroll = dynamic(() => import("./sections/StackScroll"));
 
 const isOnePager = process.env.ONE_PAGER === "true";
 
-export default function PageSections({ path }: { path: string }) {
-  const page = getPageByPath(path);
+export default async function PageSections({ path }: { path: string }) {
+  const page = await getPageByPath(path);
   if (!page) notFound();
 
   const sections = isOnePager ? page.sections.filter((section) => section.type === "hero") : page.sections;
