@@ -1,17 +1,11 @@
-import { unstable_cache } from "next/cache";
 import { cache } from "react";
 import type { SiteInfo } from "@/types/content";
 import siteDefaults from "../../../data/site-defaults.json";
-import { CACHE_TAGS } from "./cache";
 import { prisma } from "./prisma";
 
 const DEFAULT_SITE = siteDefaults.site as SiteInfo;
 
-const fetchSettings = unstable_cache(
-  async () => prisma.siteSetting.findMany(),
-  ["site-settings"],
-  { tags: [CACHE_TAGS.settings] },
-);
+const fetchSettings = cache(async () => prisma.siteSetting.findMany());
 
 function parseSettingValue<T>(value: string, fallback: T): T {
   try {

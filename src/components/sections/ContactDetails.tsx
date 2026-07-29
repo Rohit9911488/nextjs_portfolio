@@ -1,4 +1,6 @@
 import Icon from "@/components/Icon";
+import { getSite } from "@/lib/content";
+import { mergeContactItemsWithSite } from "@/lib/contact-details";
 import type { ContactDetailsSectionData } from "@/types/content";
 import SectionShell from "./SectionShell";
 
@@ -9,7 +11,10 @@ const ICON_BY_LABEL: Record<string, string> = {
   GitHub: "github",
 };
 
-export default function ContactDetails({ data }: { data: ContactDetailsSectionData }) {
+export default async function ContactDetails({ data }: { data: ContactDetailsSectionData }) {
+  const site = await getSite();
+  const items = mergeContactItemsWithSite(data.items, site);
+
   return (
     <SectionShell>
       <div className="w-full">
@@ -25,7 +30,7 @@ export default function ContactDetails({ data }: { data: ContactDetailsSectionDa
         </div>
 
         <ul className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
-          {data.items.map((item) => {
+          {items.map((item) => {
             const isExternal = /^https?:\/\//.test(item.url);
             return (
               <li key={item.label}>

@@ -77,11 +77,13 @@ async function seedSiteSettings() {
   ];
 
   for (const [key, value] of entries) {
-    await prisma.siteSetting.upsert({
-      where: { key },
-      update: { value: JSON.stringify(value) },
-      create: { key, value: JSON.stringify(value) },
-    });
+    const existing = await prisma.siteSetting.findUnique({ where: { key } });
+
+    if (!existing) {
+      await prisma.siteSetting.create({
+        data: { key, value: JSON.stringify(value) },
+      });
+    }
   }
 }
 
