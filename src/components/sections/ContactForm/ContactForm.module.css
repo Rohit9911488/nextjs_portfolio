@@ -74,3 +74,7 @@
   outline: 2px solid var(--foreground);
   outline-offset: 2px;
 }
+
+.botcheck {
+  display: none;
+}

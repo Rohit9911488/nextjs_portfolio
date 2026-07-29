@@ -14,17 +14,27 @@ export interface ContactSubmissionResult {
 export async function submitContactForm(
   submission: ContactSubmission,
 ): Promise<ContactSubmissionResult> {
-  const response = await fetch("/api/contact", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(submission),
-  });
+  const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
-  if (!response.ok) {
+  if (!accessKey) {
     return { ok: false };
   }
 
-  return response.json();
+  const formData = new FormData();
+  formData.append("access_key", accessKey);
+  formData.append("subject", `[Portfolio] ${submission.subject}`);
+  formData.append("name", submission.fullName);
+  formData.append("email", submission.email);
+  formData.append("enquiry_type", submission.enquiryType);
+  formData.append("message", submission.message);
+  formData.append("botcheck", "");
+
+  const response = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    body: formData,
+  });
+
+  const data = (await response.json().catch(() => null)) as { success?: boolean } | null;
+
+  return { ok: data?.success === true };
 }
