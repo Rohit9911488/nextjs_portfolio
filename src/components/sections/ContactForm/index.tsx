@@ -8,25 +8,68 @@ import styles from "./ContactForm.module.css";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
+function getTrimmedValue(form: FormData, name: string) {
+  return String(form.get(name) ?? "").trim();
+}
+
 export default function ContactForm({ data }: { data: FormSectionData }) {
   const formId = useId();
   const [status, setStatus] = useState<Status>("idle");
+  const [validationMessage, setValidationMessage] = useState<string | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const privacyConsent = formData.get("privacyConsent") === "on";
+    const submission = {
+      fullName: getTrimmedValue(formData, "fullName"),
+      email: getTrimmedValue(formData, "email"),
+      enquiryType: getTrimmedValue(formData, "enquiryType"),
+      subject: getTrimmedValue(formData, "subject"),
+      message: getTrimmedValue(formData, "message"),
+      privacyConsent,
+    };
+
+    const consentField = form.querySelector<HTMLInputElement>('input[name="privacyConsent"]');
+
+    if (!privacyConsent && consentField) {
+      consentField.setCustomValidity("You must agree before submitting.");
+    } else {
+      consentField?.setCustomValidity("");
+    }
+
+    const hasEmptyRequiredField =
+      !submission.fullName ||
+      !submission.email ||
+      !submission.enquiryType ||
+      !submission.subject ||
+      !submission.message ||
+      !submission.privacyConsent;
+
+    if (!form.checkValidity() || hasEmptyRequiredField) {
+      if (!privacyConsent && consentField) {
+        consentField.reportValidity();
+      } else {
+        form.reportValidity();
+      }
+
+      setValidationMessage("Please complete all required fields.");
+      setStatus("idle");
+      return;
+    }
+
+    setValidationMessage(null);
     setStatus("submitting");
 
-    const form = new FormData(event.currentTarget);
-    const result = await submitContactForm({
-      fullName: String(form.get("fullName") ?? ""),
-      email: String(form.get("email") ?? ""),
-      enquiryType: String(form.get("enquiryType") ?? ""),
-      subject: String(form.get("subject") ?? ""),
-      message: String(form.get("message") ?? ""),
-      privacyConsent: form.get("privacyConsent") === "on",
-    });
+    const result = await submitContactForm(submission);
 
     setStatus(result.ok ? "success" : "error");
+
+    if (result.ok) {
+      form.reset();
+    }
   }
 
   return (
@@ -46,7 +89,18 @@ export default function ContactForm({ data }: { data: FormSectionData }) {
           )}
         </div>
 
-        <form onSubmit={handleSubmit} className="mt-12 flex flex-col gap-6" noValidate>
+        <form
+          onSubmit={handleSubmit}
+          onInput={() => setValidationMessage(null)}
+          className="mt-12 flex flex-col gap-6"
+        >
+          <input
+            type="checkbox"
+            name="botcheck"
+            className={styles.botcheck}
+            tabIndex={-1}
+            autoComplete="off"
+          />
           {data.fields.map((field) => {
             const fieldId = `${formId}-${field.name}`;
 
@@ -57,7 +111,7 @@ export default function ContactForm({ data }: { data: FormSectionData }) {
                     id={fieldId}
                     name={field.name}
                     type="checkbox"
-                    required={field.required}
+                    required={field.required ?? true}
                     className={`theme-transition ${styles.checkbox}`}
                   />
                   <label htmlFor={fieldId} className="text-sm leading-6 text-muted">
@@ -76,7 +130,7 @@ export default function ContactForm({ data }: { data: FormSectionData }) {
                   <select
                     id={fieldId}
                     name={field.name}
-                    required={field.required}
+                    required={field.required ?? true}
                     className={`theme-transition ${styles.field}`}
                     defaultValue=""
                   >
@@ -102,7 +156,7 @@ export default function ContactForm({ data }: { data: FormSectionData }) {
                   <textarea
                     id={fieldId}
                     name={field.name}
-                    required={field.required}
+                    required={field.required ?? true}
                     placeholder={field.placeholder}
                     rows={5}
                     className={`theme-transition ${styles.field}`}
@@ -120,7 +174,7 @@ export default function ContactForm({ data }: { data: FormSectionData }) {
                   id={fieldId}
                   name={field.name}
                   type={field.type}
-                  required={field.required}
+                  required={field.required ?? true}
                   placeholder={field.placeholder}
                   className={`theme-transition ${styles.field}`}
                 />
@@ -137,6 +191,9 @@ export default function ContactForm({ data }: { data: FormSectionData }) {
           </button>
 
           <div role="status" aria-live="polite">
+            {validationMessage && (
+              <p className="text-sm font-medium text-muted">{validationMessage}</p>
+            )}
             {status === "success" && (
               <p className="text-sm font-medium text-foreground">{data.successMessage}</p>
             )}
