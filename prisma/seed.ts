@@ -1,4 +1,5 @@
 import siteDefaults from "../data/site-defaults.json";
+import portfolioContent from "../data/portfolio-content.json";
 import { prisma } from "../src/lib/db/prisma";
 import { SEED_PROJECTS } from "./seed-data";
 
@@ -87,8 +88,28 @@ async function seedSiteSettings() {
   }
 }
 
+async function seedPages() {
+  for (const [index, page] of portfolioContent.pages.entries()) {
+    const existing = await prisma.page.findUnique({ where: { pageKey: page.id } });
+
+    if (!existing) {
+      await prisma.page.create({
+        data: {
+          pageKey: page.id,
+          path: page.path,
+          seo: JSON.stringify(page.seo),
+          sections: JSON.stringify(page.sections),
+          order: index,
+          published: true,
+        },
+      });
+    }
+  }
+}
+
 async function main() {
   await seedSiteSettings();
+  await seedPages();
   await seedProjects();
   console.log("Database seeded.");
 }

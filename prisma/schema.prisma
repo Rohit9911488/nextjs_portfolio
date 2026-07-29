@@ -45,3 +45,17 @@ model SiteSetting {
   value     String
   updatedAt DateTime @updatedAt
 }
+
+/// CMS page: `sections` is JSON array of section blocks, each with a `type` component alias
+/// (hero, content, cards, projects, timeline, contactDetails, form, cta).
+model Page {
+  id        String   @id @default(cuid())
+  pageKey   String   @unique
+  path      String   @unique
+  seo       String
+  sections  String
+  published Boolean  @default(true)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

@@ -29,12 +29,16 @@ export async function submitContactForm(
   formData.append("message", submission.message);
   formData.append("botcheck", "");
 
-  const response = await fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    body: formData,
-  });
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
 
-  const data = (await response.json().catch(() => null)) as { success?: boolean } | null;
+    const data = (await response.json().catch(() => null)) as { success?: boolean } | null;
 
-  return { ok: data?.success === true };
+    return { ok: response.ok && data?.success === true };
+  } catch {
+    return { ok: false };
+  }
 }

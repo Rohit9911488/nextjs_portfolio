@@ -1,10 +1,8 @@
-import rawContent from "../../data/portfolio-content.json";
 import { getAllProjectCards, getFeaturedProjectCards } from "./db/projects";
+import { getAllPages, getPageByPath } from "./db/pages";
 import { getSite } from "./db/settings";
-import type { ProjectItem, PageData } from "@/types/content";
+import type { ProjectItem } from "@/types/content";
 import type { ProjectCardDTO } from "@/types/project";
-
-const content = rawContent as { pages: PageData[] };
 
 function toProjectItem(project: ProjectCardDTO): ProjectItem {
   return {
@@ -22,7 +20,7 @@ function toProjectItem(project: ProjectCardDTO): ProjectItem {
   };
 }
 
-export { getSite };
+export { getSite, getAllPages, getPageByPath };
 
 export async function getAllProjects(): Promise<ProjectItem[]> {
   const projects = await getAllProjectCards();
@@ -32,12 +30,4 @@ export async function getAllProjects(): Promise<ProjectItem[]> {
 export async function getFeaturedProjects(limit = 3): Promise<ProjectItem[]> {
   const projects = await getFeaturedProjectCards(limit);
   return projects.map(toProjectItem);
-}
-
-export function getAllPages(): PageData[] {
-  return content.pages;
-}
-
-export function getPageByPath(path: string): PageData | undefined {
-  return content.pages.find((page) => page.path === path);
 }
