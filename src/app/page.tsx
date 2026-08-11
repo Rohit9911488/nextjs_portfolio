@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
-import PageSections from "@/components/PageSections";
-import { getPageByPath, getSite } from "@/lib/content";
-import { buildPageMetadata } from "@/lib/seo";
-
-export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageByPath("/");
-  const site = await getSite();
-  return page ? buildPageMetadata(page, site) : {};
-}
+import AboutMe from "@/components/sections/AboutMe";
+import ContactMe from "@/components/sections/ContactMe";
+import FeaturedProjects from "@/components/sections/FeaturedProjects";
+import Hero from "@/components/sections/Hero";
 
 export default function Home() {
-  return <PageSections path="/" />;
+  return (
+    <main>
+      <Hero />
+      <FeaturedProjects />
+      <AboutMe />
+      <ContactMe />
+    </main>
+  );
 }

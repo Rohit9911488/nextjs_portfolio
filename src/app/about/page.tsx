@@ -1,14 +1,23 @@
-import type { Metadata } from "next";
-import PageSections from "@/components/PageSections";
-import { getPageByPath, getSite } from "@/lib/content";
-import { buildPageMetadata } from "@/lib/seo";
-
-export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageByPath("/about");
-  const site = await getSite();
-  return page ? buildPageMetadata(page, site) : {};
-}
+import ImageFrame from "@/components/ImageFrame";
+import ContactMe from "@/components/sections/ContactMe";
+import MyCapabilities from "@/components/sections/MyCapabilities";
+import MyExperience from "@/components/sections/MyExperience";
+import SubPageHero from "@/components/sections/SubPageHero";
+import { getAboutMediaContent } from "@/lib/site";
+import styles from "./about.module.css";
 
 export default function AboutPage() {
-  return <PageSections path="/about" />;
+  const media = getAboutMediaContent();
+
+  return (
+    <main>
+      <SubPageHero variant="about" />
+      <div className={`site-container ${styles.media}`}>
+        <ImageFrame src={media.src} alt={media.alt} priority />
+      </div>
+      <MyCapabilities />
+      <MyExperience />
+      <ContactMe />
+    </main>
+  );
 }

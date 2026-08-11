@@ -1,0 +1,50 @@
+{
+  "title": "Featured Projects",
+  "subhead": "Here are some of the selected projects that showcase my passion for building practical AI and machine learning applications.",
+  "liveLabel": "Live Demo",
+  "githubLabel": "See on Github",
+  "projects": [
+    {
+      "title": "Immutable Scan: Medical Image Verification Framework",
+      "tag": "Deep Learning & Computer Vision",
+      "description": "A defense framework built to protect medical imaging systems from adversarial manipulation — combining neural hashing with an active calibration protocol to detect and recover from attacks.",
+      "image": "/images/projects/project-1.png",
+      "imageAlt": "Immutable Scan medical image verification project preview",
+      "info": [
+        { "topic": "Year", "value": "2025" },
+        { "topic": "Role", "value": "AI / ML Developer" },
+        { "topic": "Stack", "value": "TensorFlow, OpenCV, Python" }
+      ],
+      "liveUrl": "https://github.com/Rohit9911488",
+      "githubUrl": "https://github.com/Rohit9911488"
+    },
+    {
+      "title": "AI Career Prediction System",
+      "tag": "Machine Learning & Predictive Analytics",
+      "description": "An AI-powered application that recommends career paths by combining personality traits, technical skills, and real labor-market data — rather than relying on static career quizzes.",
+      "image": "/images/projects/project-2.png",
+      "imageAlt": "AI Career Prediction System project preview",
+      "info": [
+        { "topic": "Year", "value": "2024" },
+        { "topic": "Role", "value": "Full-stack / ML Engineer" },
+        { "topic": "Stack", "value": "Python, TensorFlow, Databricks, Flask" }
+      ],
+      "liveUrl": "https://github.com/Rohit9911488",
+      "githubUrl": "https://github.com/Rohit9911488"
+    },
+    {
+      "title": "Real-Time Face Detection System with Audio Feedback",
+      "tag": "Computer Vision",
+      "description": "A real-time computer vision application that detects faces through a live camera feed and responds with spoken feedback — built as a multimodal interface rather than a silent detector.",
+      "image": "/images/projects/project-3.png",
+      "imageAlt": "Real-time face detection system project preview",
+      "info": [
+        { "topic": "Year", "value": "2023" },
+        { "topic": "Role", "value": "Computer Vision Developer" },
+        { "topic": "Stack", "value": "Python, OpenCV, gTTS" }
+      ],
+      "liveUrl": "https://github.com/Rohit9911488",
+      "githubUrl": "https://github.com/Rohit9911488"
+    }
+  ]
+}

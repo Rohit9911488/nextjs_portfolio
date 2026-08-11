@@ -1,0 +1,30 @@
+{
+  "heading": "Let's connect",
+  "emailLabel": "Say hello at",
+  "email": "sachdevarohit492@gmail.com",
+  "resumeLabel": "For more info, here's my",
+  "resumeLinkLabel": "resume",
+  "resumeHref": "/resume.pdf",
+  "socials": [
+    {
+      "label": "LinkedIn",
+      "href": "https://linkedin.com/in/rohitsachdeva2003",
+      "icon": "/icons/linkedin.svg"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/Rohit9911488",
+      "icon": "/icons/github.svg"
+    },
+    {
+      "label": "X",
+      "href": "https://x.com",
+      "icon": "/icons/social-x.svg"
+    },
+    {
+      "label": "Instagram",
+      "href": "https://instagram.com",
+      "icon": "/icons/social-instagram.svg"
+    }
+  ]
+}

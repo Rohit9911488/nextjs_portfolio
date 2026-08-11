@@ -1,0 +1,17 @@
+{
+  "heading": "My Experience",
+  "items": [
+    {
+      "role": "Data Analyst Intern",
+      "company": "Plan India",
+      "dates": "Feb 2025 — July 2025",
+      "description": "Built automation scripts to standardize Excel datasets from complex Word templates, optimized SharePoint search with structured metadata, researched Azure chatbot integration, and delivered Power BI dashboards for organizational KPIs."
+    },
+    {
+      "role": "Student Mentor (Technical)",
+      "company": "Click at Career",
+      "dates": "June 2024 — Jan 2025",
+      "description": "Mentored undergraduate students in Python programming and Data Analytics fundamentals, debugging code and guiding algorithm implementation through practical challenges."
+    }
+  ]
+}

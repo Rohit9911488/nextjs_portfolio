@@ -1,41 +1,51 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import {
+  Bebas_Neue,
+  Geist,
+  JetBrains_Mono,
+  Manrope,
+  Space_Grotesk,
+} from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import ScrollRefresh from "@/components/ScrollRefresh";
-import SmoothScrollDeferred from "@/components/SmoothScrollDeferred";
-import { getSite } from "@/lib/content";
+import { getSiteContent } from "@/lib/site";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-face-body",
+const geist = Geist({
   subsets: ["latin"],
+  variable: "--font-geist-sans",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-face-display",
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-manrope",
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-face-mono",
   subsets: ["latin"],
-  weight: ["500", "600"],
+  weight: ["400", "500", "600"],
+  variable: "--font-jetbrains",
 });
 
-const themeInitScript = `(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':true;document.documentElement.classList.toggle('dark',d);}catch(e){document.documentElement.classList.add('dark');}})();`;
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+});
 
-export async function generateMetadata(): Promise<Metadata> {
-  const site = await getSite();
+const bebasNeue = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-logo",
+});
 
-  return {
-    metadataBase: new URL(site.siteUrl),
-    title: `${site.name} | ${site.professionalTitle}`,
-    description: site.description,
-  };
-}
+const site = getSiteContent();
+
+export const metadata: Metadata = {
+  title: site.title,
+  description: site.description,
+};
 
 export default function RootLayout({
   children,
@@ -45,21 +55,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased`}
-      suppressHydrationWarning
+      className={`${geist.variable} ${manrope.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable} ${bebasNeue.variable}`}
     >
-      <body className="min-h-full flex flex-col">
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-        <SmoothScrollDeferred>
-          <Suspense fallback={null}>
-            <ScrollRefresh />
-          </Suspense>
-          <div className="theme-transition relative flex min-h-dvh flex-col bg-background">
-            <Header />
-            <main className="flex flex-1 flex-col">{children}</main>
-            <Footer />
-          </div>
-        </SmoothScrollDeferred>
+      <body>
+        <Header />
+        <div className="pageMain">{children}</div>
+        <Footer />
       </body>
     </html>
   );
