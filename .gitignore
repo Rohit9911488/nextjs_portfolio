@@ -33,6 +33,9 @@ yarn-error.log*
 .env*.local
 !.env.example
 
+# runtime shutdown flag (local fallback)
+/data/shutdown.json
+
 # local notes / design briefs
 portfolio-redesign.md
 

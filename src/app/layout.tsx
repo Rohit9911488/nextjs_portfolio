@@ -8,7 +8,9 @@ import {
 } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import MaintenanceScreen from "@/components/MaintenanceScreen";
 import { getSiteContent } from "@/lib/site";
+import { getShutdownEnabled } from "@/lib/shutdown";
 import "./globals.css";
 
 const geist = Geist({
@@ -47,20 +49,28 @@ export const metadata: Metadata = {
   description: site.description,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const shutdown = await getShutdownEnabled();
+
   return (
     <html
       lang="en"
       className={`${geist.variable} ${manrope.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable} ${bebasNeue.variable}`}
     >
       <body>
-        <Header />
-        <div className="pageMain">{children}</div>
-        <Footer />
+        {shutdown ? (
+          <MaintenanceScreen />
+        ) : (
+          <>
+            <Header />
+            <div className="pageMain">{children}</div>
+            <Footer />
+          </>
+        )}
       </body>
     </html>
   );
