@@ -50,7 +50,10 @@ export async function POST(request: Request) {
 
   if (shutdown === null) {
     return NextResponse.json(
-      { error: 'Provide shutdown as true or false in the JSON body or ?shutdown= query param.' },
+      {
+        error:
+          "Provide shutdown as true or false in the JSON body or ?shutdown= query param.",
+      },
       { status: 400 },
     );
   }

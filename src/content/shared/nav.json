@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "label": "Work",
+      "href": "/#work",
+      "hash": true,
+      "index": "01"
+    },
+    {
+      "label": "About",
+      "href": "/about",
+      "hash": false,
+      "index": "02"
+    },
+    {
+      "label": "Contact",
+      "href": "/#contact",
+      "hash": true,
+      "index": "03"
+    }
+  ],
+  "mobileEyebrow": "Navigate",
+  "mobileCtaLabel": "Contact Me",
+  "mobileCtaHref": "/#contact"
+}

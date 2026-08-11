@@ -1,0 +1,11 @@
+{
+  "heading": "ABOUT ME",
+  "title": "I'm an MCA student focused on Artificial Intelligence, Machine Learning, and Data Analytics. I like building things that actually work.",
+  "copy": "My work spans predictive analytics, medical image verification, computer vision, and AI-powered recommendation systems — projects where I've had to move from research and papers into deployable, practical software. I've also worked as a Data Analyst Intern at Plan India, building automation scripts and Power BI dashboards, and I currently mentor students in Python and Data Analytics through Click at Career. Explaining technical concepts clearly to others has, in turn, made me better at reasoning through my own problems.",
+  "ctaLabel": "More about me",
+  "ctaHref": "/about",
+  "resumeLabel": "Download resume",
+  "resumeHref": "/resume.pdf",
+  "linkedInUrl": "https://linkedin.com/in/rohitsachdeva2003",
+  "githubUrl": "https://github.com/Rohit9911488"
+}

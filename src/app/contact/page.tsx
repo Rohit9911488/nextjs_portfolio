@@ -1,14 +1,18 @@
-import type { Metadata } from "next";
-import PageSections from "@/components/PageSections";
-import { getPageByPath, getSite } from "@/lib/content";
-import { buildPageMetadata } from "@/lib/seo";
-
-export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageByPath("/contact");
-  const site = await getSite();
-  return page ? buildPageMetadata(page, site) : {};
-}
+import ContactMe from "@/components/sections/ContactMe";
+import SubPageHero from "@/components/sections/SubPageHero";
+import { getContactHeroContent } from "@/lib/site";
 
 export default function ContactPage() {
-  return <PageSections path="/contact" />;
+  const hero = getContactHeroContent();
+
+  return (
+    <main>
+      <SubPageHero
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        description={hero.description}
+      />
+      <ContactMe />
+    </main>
+  );
 }
